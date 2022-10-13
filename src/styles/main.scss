@@ -1,0 +1,215 @@
+@import "_vars.scss";
+@import "_mixins.scss";
+
+.main {
+  padding-top: 27px;
+  padding-bottom: 27px;
+  &__mobile {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+  &__card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-width: 341px;
+    margin: 0 auto;
+    border: .3px solid $borderColor;
+    border-radius: 16px;
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+    &:nth-child(2) {
+      .main__new {
+        top: 0;
+        border-radius: 15px 0px 12px;
+        background-color: $purple;
+        color: $white;
+        font-size: 14px;
+      }
+    }
+  }
+  &__image {
+    margin-bottom: 14px;
+  }
+  &__content {
+    padding: 0 12px 19px 12px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__new {
+    position: absolute;
+    top: 41px;
+    left: 0;
+    background-color: $yellow;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 10px 17px;
+  }
+  &__duration {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: $gray;
+    background-image: url("images/timing.svg");
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: left center;
+    padding-left: 25px;
+    margin-bottom: 15px;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    color: $black;
+    margin-bottom: 20px;
+  }
+  &__terms {
+    display: flex;
+    flex-direction: column;
+    @extend %list-reset;
+  }
+  &__term {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: $light-black;
+    background-image: url("images/check.svg");
+    background-repeat: no-repeat;
+    background-size: 16px 12px;
+    background-position: left center;
+    padding-left: 36px;
+    margin-bottom: 7px;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    &--double {
+      background-position: left 6px;
+    }
+  }
+  &__timings {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: flex-end;
+    justify-content: flex-end;
+    @extend %list-reset;
+    margin-bottom: 35px;
+    max-width: 243px;
+    row-gap: 10px;
+    column-gap: 8px;
+    & li:nth-child(1n + 5) {
+      display: none;
+    }
+    &--visible {
+      & li:nth-child(1n + 5) {
+        display: inline-block;
+      }
+    }
+  }
+  &__timing {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 4px 9px;
+    background-color: $light-blue;
+    border-radius: 17px;
+    color: #343434;
+    &--checked {
+      background-color: $semi-light-blue;
+      color: $white;
+      transition: color .3s, background-color .3s;
+    }
+  }
+  &__timing--more {
+    cursor: pointer;
+  }
+  &__footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__prices {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__price {
+    color: $total-black;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 20px;
+  }
+  &__price--dock {
+    color: $total-black;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 20px;
+  }
+  &__detail {
+    @extend %button;
+  }
+  &__desktop {
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+    }
+    .main__card {
+      margin-bottom: 0;
+      max-width: 100%;
+      flex-direction: row;
+      &:not(:last-child) {
+        margin-bottom: 60px;
+      }
+      &:nth-child(2n) {
+        .main__new {
+          background-color: $yellow;
+          color: $black;
+          top: 60px;
+          border-radius: 0;
+        }
+      }
+    }
+    .main__content {
+      padding: 16px 16px 16px 0;
+    }
+    .main__new {
+      background-color: $blue;
+      color: $white;
+      margin-bottom: 9px;
+    }
+    .main__title {
+      font-size: 26px;
+      line-height: 34px;
+      max-width: 557px;
+      margin-bottom: 11px;
+    }
+    .main__image {
+      margin-bottom: 0;
+      margin-right: 23px;
+      max-width: 467px;
+      @media (max-width: 836px) {
+        max-width: 400px;
+      }
+    }
+    .main__timings {
+      margin-top: -30px;
+      @media (max-width: 1018px) {
+        margin-top: 0;
+      }
+    }
+    .main__term {
+      padding-left: 30px;
+    }
+    .main__prices {
+      margin-right: 10px;
+    }
+    .main__footer {
+      justify-content: flex-start;
+    }
+  }
+}
